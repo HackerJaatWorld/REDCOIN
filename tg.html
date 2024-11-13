@@ -1,45 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script type="module" src="js/telegram-web-app.js"></script>
 </head>
-
 <body style="background:black;">
-    <div id="userInfo" style="color:#ffff">info</div>
+    <div id="userInfo" style="color:#fff">Loading user info...</div>
+
     <script>
         // Wait for the Telegram Web App to be ready
-        Telegram.WebApp.ready(() => {
-            // Access user data
-            const userData = Telegram.WebApp.initDataUnsafe.user;
+        document.addEventListener("DOMContentLoaded", () => {
+            // Check if Telegram object is available
+            if (window.Telegram && Telegram.WebApp) {
+                Telegram.WebApp.ready(() => {
+                    // Access user data
+                    const userData = Telegram.WebApp.initDataUnsafe.user;
 
-            // Check if user data is available
-            if (userData) {
-                // Extract the user details
-                const userID = userData.id;
-                const username = userData.username || "No username";
-                const fullName = `${userData.first_name} ${userData.last_name || ''}`.trim();
+                    // Check if user data is available
+                    if (userData) {
+                        // Extract the user details
+                        const userID = userData.id;
+                        const username = userData.username || "No username";
+                        const fullName = `${userData.first_name} ${userData.last_name || ''}`.trim();
 
-                // Log or use the details
-                console.log("User ID:", userID);
-                console.log("Username:", username);
-                console.log("Full Name:", fullName);
+                        // Log or use the details
+                        console.log("User ID:", userID);
+                        console.log("Username:", username);
+                        console.log("Full Name:", fullName);
 
-                // You can also display this information in your app
-                document.getElementById("userInfo").innerHTML = `
-            <p>User ID: ${userID}</p>
-            <p>Username: ${username}</p>
-            <p>Full Name: ${fullName}</p>
-        `;
+                        // Display this information in the app
+                        document.getElementById("userInfo").innerHTML = `
+                            <p>User ID: ${userID}</p>
+                            <p>Username: ${username}</p>
+                            <p>Full Name: ${fullName}</p>
+                        `;
+                    } else {
+                        alert("User data is not available.");
+                    }
+                });
             } else {
-                alert("User data is not available.");
+                document.getElementById("userInfo").textContent = "Telegram Web App is not available.";
             }
         });
-
     </script>
 </body>
-
 </html>
