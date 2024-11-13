@@ -3,45 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Telegram User Info</title>
     <script type="module" src="js/telegram-web-app.js"></script>
 </head>
-<body style="background:black;">
-    <div id="userInfo" style="color:#fff">Loading user info...</div>
+<body style="background:black; color:#fff;">
+    <div id="userInfo">Loading user info...</div>
+    <div id="errorInfo" style="color: red; margin-top: 20px;"></div> <!-- Error Display Div -->
 
     <script>
-        // Wait for the Telegram Web App to be ready
+        // Wait for the document to be fully loaded
         document.addEventListener("DOMContentLoaded", () => {
             // Check if Telegram object is available
             if (window.Telegram && Telegram.WebApp) {
-                Telegram.WebApp.ready(() => {
-                    // Access user data
-                    const userData = Telegram.WebApp.initDataUnsafe.user;
+                try {
+                    // Initialize the Telegram Web App and get ready
+                    Telegram.WebApp.ready(() => {
+                        try {
+                            // Access user data
+                            const userData = Telegram.WebApp.initDataUnsafe.user;
 
-                    // Check if user data is available
-                    if (userData) {
-                        // Extract the user details
-                        const userID = userData.id;
-                        const username = userData.username || "No username";
-                        const fullName = `${userData.first_name} ${userData.last_name || ''}`.trim();
+                            // Check if user data is available
+                            if (userData) {
+                                // Extract the user details
+                                const userID = userData.id;
+                                const username = userData.username || "No username";
+                                const fullName = `${userData.first_name} ${userData.last_name || ''}`.trim();
 
-                        // Log or use the details
-                        console.log("User ID:", userID);
-                        console.log("Username:", username);
-                        console.log("Full Name:", fullName);
-
-                        // Display this information in the app
-                        document.getElementById("userInfo").innerHTML = `
-                            <p>User ID: ${userID}</p>
-                            <p>Username: ${username}</p>
-                            <p>Full Name: ${fullName}</p>
-                        `;
-                    } else {
-                        alert("User data is not available.");
-                    }
-                });
+                                // Display user details on the page
+                                document.getElementById("userInfo").innerHTML = `
+                                    <p>User ID: ${userID}</p>
+                                    <p>Username: ${username}</p>
+                                    <p>Full Name: ${fullName}</p>
+                                `;
+                            } else {
+                                throw new Error("User data is not available.");
+                            }
+                        } catch (userError) {
+                            // Display user data error
+                            document.getElementById("errorInfo").textContent = "Error fetching user data: " + userError.message;
+                            console.error("Error fetching user data:", userError);
+                        }
+                    });
+                } catch (readyError) {
+                    // Display ready function error
+                    document.getElementById("errorInfo").textContent = "Error initializing Telegram Web App: " + readyError.message;
+                    console.error("Error initializing Telegram Web App:", readyError);
+                }
             } else {
-                document.getElementById("userInfo").textContent = "Telegram Web App is not available.";
+                // If Telegram object is not available
+                const errorMessage = "Telegram Web App is not available. Please ensure this is opened in the Telegram app.";
+                document.getElementById("errorInfo").textContent = errorMessage;
+                console.error(errorMessage);
             }
         });
     </script>
