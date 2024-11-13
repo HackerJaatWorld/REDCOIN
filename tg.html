@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="js/telegram-web-app.js"></script>
+</head>
+
+<body>
+    <div id="userInfo"></div>
+    <script>
+        // Wait for the Telegram Web App to be ready
+        Telegram.WebApp.ready(() => {
+            // Access user data
+            const userData = Telegram.WebApp.initDataUnsafe.user;
+
+            // Check if user data is available
+            if (userData) {
+                // Extract the user details
+                const userID = userData.id;
+                const username = userData.username || "No username";
+                const fullName = `${userData.first_name} ${userData.last_name || ''}`.trim();
+
+                // Log or use the details
+                console.log("User ID:", userID);
+                console.log("Username:", username);
+                console.log("Full Name:", fullName);
+
+                // You can also display this information in your app
+                document.getElementById("userInfo").innerHTML = `
+            <p>User ID: ${userID}</p>
+            <p>Username: ${username}</p>
+            <p>Full Name: ${fullName}</p>
+        `;
+            } else {
+                alert("User data is not available.");
+            }
+        });
+
+    </script>
+</body>
+
+</html>
