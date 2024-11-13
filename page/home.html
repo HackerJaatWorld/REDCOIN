@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paws Dashboard</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-text">Cheack Roadmap</div>
+        <button onclick="cheackRoadmap()" class="header-button">➔</button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div id="home" class="section active">
+            <div class="profile-dropdown">🔵 Wallat connect soon..</div>
+            <div class="paws-display">
+                <div class="paws-icon">
+                    <img src="../img/red.jpg" alt="">
+                </div>
+                <div class="paws-count"><span id="totalredpoints">00</span> RED</div>
+                <!-- <div class="rank-text">LEGEND ⭐ RANK</div> -->
+            </div>
+            <button class="action-button">👥 Join our community ➔</button>
+        </div>
+
+        <div id="leaderboard" class="section">
+
+            <!-- Leaderboard Header Section -->
+            <div class="leaderboard-header">
+                <div class="trophy-icon">🏆</div>
+                <h1>Leaderboard</h1>
+                <div class="total-users">Total: 00 users</div>
+            </div>
+
+            <!-- Coming Soon Placeholder -->
+            <div class="coming-soon">
+                <h2>Leaderboard</h2>
+                <p>Top 50 users with the highest total points are displayed below.</p>
+            </div>
+
+            <!-- Leaderboard List -->
+            <div class="leaderboard-list" id="leaderboardList">
+                <!-- Users will be populated here dynamically -->
+            </div>
+
+        </div>
+
+        <div id="earn" class="section">
+            <!-- Tasks Header -->
+            <div class="tasks-header">
+                <h1>TASKS</h1>
+                <p>GET REWARDS FOR <br> COMPLETING QUESTS</p>
+            </div>
+
+            <!-- Tabs Section -->
+            <div class="tabs">
+                <button class="tab active">In-game</button>
+                <button class="tab">Partners</button>
+            </div>
+
+            <!-- Task List -->
+            <div class="task-list">
+                <!-- Task Item -->
+                <div class="task-item">
+                    <div class="task-icon">🐾</div>
+                    <div class="task-info">
+                        <h3>One falls, one rises</h3>
+                        <p>+ 250 PAWS</p>
+                    </div>
+                    <div class="task-actions">
+                        <button class="start-btn">Start</button>
+                        <button class="claim-btn">Claim</button>
+                    </div>
+                </div>
+
+                <div class="task-item">
+                    <div class="task-icon">🐾</div>
+                    <div class="task-info">
+                        <h3>Put 🐾 in your name</h3>
+                        <p>+ 5,000 PAWS</p>
+                    </div>
+                    <div class="task-actions">
+                        <button class="start-btn">Start</button>
+                        <button class="claim-btn">Claim</button>
+                    </div>
+                </div>
+
+                <div class="task-item">
+                    <div class="task-icon">🐾</div>
+                    <div class="task-info">
+                        <h3>Tweet about PAWS</h3>
+                        <p>+ 2,000 PAWS</p>
+                    </div>
+                    <div class="task-actions">
+                        <button class="start-btn">Start</button>
+                        <button class="claim-btn">Claim</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="friends" class="section">
+            <!-- Container -->
+            <div class="invite-container">
+                <!-- Header -->
+                <div class="header">
+                    <span>Total</span>
+                    <span>25 users</span>
+                </div>
+
+                <div class="referral-link">
+                    <span>Your Referral Link:</span>
+                    <input type="text" id="referralLink" readonly style="color: black;">
+                </div>
+
+                <!-- User List -->
+                <div class="user-list" id="userList">
+
+                    <!-- <div class="user-item">
+                        <div class="user-info">
+                            <div class="user-icon">👥</div>
+                            <div class="user-details">
+                                <span class="username">Blessingqueen6</span>
+                                <span class="timestamp">November 12 at 21:39</span>
+                            </div>
+                        </div>
+                        <div class="paws-info">
+                            <span class="paws-count">+545 PAWS</span>
+                            <span class="status">Received</span>
+                        </div>
+                    </div>
+
+                    <div class="user-item">
+                        <div class="user-info">
+                            <div class="user-icon">👥</div>
+                            <div class="user-details">
+                                <span class="username">Anonym</span>
+                                <span class="timestamp">November 12 at 21:39</span>
+                            </div>
+                        </div>
+                        <div class="paws-info">
+                            <span class="paws-count">+152 PAWS</span>
+                            <span class="status">Received</span>
+                        </div>
+                    </div> -->
+
+                </div>
+
+                <!-- Invite Button -->
+                <button class="invite-button" id="raferlinkbtn">Copy Referral Link</button>
+            </div>
+        </div>
+
+        <div class="roademap-container" >
+            <div class="roademap" id="roademap-container">
+                <ul class="roadmap" id="roadmap">
+                    <!-- Roadmap points will be added here -->
+                </ul>
+                <button onclick="closeRoadmapBtn()" class="close-roademap">Close</button>
+            </div>
+        </div>
+    </main>
+
+
+
+    <!-- Footer Navigation -->
+    <footer class="footer-nav">
+        <div class="nav-item active" onclick="showSection('home')">🏠</div>
+        <div class="nav-item" onclick="showSection('leaderboard')">🏆</div>
+        <div class="nav-item" onclick="showSection('friends')">👥</div>
+        <div class="nav-item" onclick="showSection('earn')">💰</div>
+    </footer>
+
+
+    <script src="js/script.js"></script>
+    <script src="js/home.js" type="module"></script>
+</body>
+
+</html>

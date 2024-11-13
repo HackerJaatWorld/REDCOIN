@@ -1,0 +1,482 @@
+/* styles.css */
+
+/* Reset basic styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #1a1a1a;
+}
+
+.header-text {
+  font-size: 16px;
+  color: #cfcfcf;
+}
+
+.header-button {
+  background-color: #3498db;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Main Content */
+.main-content {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-dropdown {
+  background-color: #3498db;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.paws-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.paws-icon {
+  font-size: 60px;
+}
+
+.paws-icon img {
+  width: 20%;
+  border-radius: 100%;
+}
+
+.paws-count {
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.rank-text {
+  color: #cfcfcf;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.action-button {
+  display: block;
+  width: 80%;
+  max-width: 300px;
+  padding: 12px;
+  margin: 10px auto;
+  background-color: #2c2c2c;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.action-button:after {
+  content: ' ➔';
+  float: right;
+  color: #888;
+}
+
+/* Footer Navigation */
+.footer-nav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: #1a1a1a;
+  padding: 10px 0;
+}
+
+.nav-item {
+  font-size: 16px;
+  color: #888;
+  text-align: center;
+  flex: 1;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.nav-item.active {
+  color: #3498db;
+  filter: drop-shadow( 0px 1px 2px #ffff);
+}
+
+
+
+/* Leaderboard Header */
+.leaderboard-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.trophy-icon {
+  font-size: 50px;
+}
+
+.leaderboard-header h1 {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.total-users {
+  font-size: 16px;
+  color: #cfcfcf;
+  margin-top: 5px;
+}
+
+/* Coming Soon Placeholder */
+.coming-soon {
+  background-color: #2c2c2c;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.coming-soon h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.coming-soon p {
+  font-size: 16px;
+  color: #cfcfcf;
+}
+
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.leaderboard-item {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.rank,
+.name,
+.points {
+  font-size: 16px;
+}
+
+.highlighted-user {
+  background-color: #1f1d10;
+}
+
+.user-rank-message {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #f44336;
+}
+
+/* Tasks Header */
+.tasks-header h1 {
+  font-size: 24px;
+}
+
+.tasks-header p {
+  font-size: 14px;
+  color: #888;
+  margin-top: 5px;
+  text-align: center;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  margin: 20px 0;
+  width: 100%;
+  max-width: 400px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  background-color: #333;
+  color: #888;
+  border: none;
+  cursor: pointer;
+}
+
+.tab.active {
+  background-color: #555;
+  color: #fff;
+}
+
+/* Task List */
+.task-list {
+  width: 100%;
+  max-width: 400px;
+}
+
+.task-item {
+  background-color: #222;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+}
+
+.task-icon {
+  font-size: 30px;
+  margin-right: 15px;
+}
+
+.task-info h3 {
+  font-size: 16px;
+}
+
+.task-info p {
+  font-size: 14px;
+  color: #888;
+}
+
+.task-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 5px;
+}
+
+.start-btn,
+.claim-btn {
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.start-btn {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.claim-btn {
+  background-color: #ffa500;
+  color: #fff;
+}
+
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
+
+.nav-item.active {
+  font-weight: bold;
+  color: #007bff;
+  /* Customize the active color */
+}
+
+.roademap {
+  width: 90%;
+  height: 70%;
+  background: black;
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  transition: 0.5s;
+  /* display: none; */
+}
+
+
+.close-roademap {
+  font-size: 1em;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  padding: 5px;
+  width: 50px;
+  border-radius: 20px;
+  background-color: rgb(145, 106, 181);
+  border: none;
+  cursor: pointer;
+}
+
+.invite-container {
+  width: 300px;
+  background-color: #222;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #333;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.user-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.user-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #444;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #888;
+}
+
+.paws-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.paws-count {
+  color: #0f0;
+  font-size: 15px;
+}
+
+.status {
+  font-size: 12px;
+  color: #0f0;
+}
+
+.invite-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #4a90e2;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.invite-button:hover {
+  background-color: #3a7bcc;
+}
+
+
+.roadmap-container {
+  width: 400px;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.roadmap-header {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+.roadmap {
+  list-style-type: none;
+  padding: 10px;
+  margin: 0;
+  max-height: 90%;
+  overflow: auto;
+}
+.roadmap-point {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+.roadmap-point.completed {
+  background-color: #4caf50;
+}
+.roadmap-point.in-progress {
+  background-color: #ff9800;
+}
+.roadmap-point.pending {
+  background-color: #757575;
+}
+.point-info {
+  display: flex;
+  flex-direction: column;
+}
+.point-title {
+  font-size: 0.8em;
+  font-weight: bold;
+}
+.point-date {
+  font-size: 0.7em;
+  color: #ddd;
+}
+.status {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 0.7em;
+  font-weight: bold;
+}

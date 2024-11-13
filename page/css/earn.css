@@ -1,0 +1,108 @@
+/* styles.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Tasks Header */
+  .tasks-header h1 {
+    font-size: 24px;
+  }
+  
+  .tasks-header p {
+    font-size: 14px;
+    color: #888;
+    margin-top: 5px;
+    text-align: center;
+  }
+  
+  /* Tabs */
+  .tabs {
+    display: flex;
+    margin: 20px 0;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .tab {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #333;
+    color: #888;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .tab.active {
+    background-color: #555;
+    color: #fff;
+  }
+  
+  /* Task List */
+  .task-list {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .task-item {
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+  }
+  
+  .task-icon {
+    font-size: 30px;
+    margin-right: 15px;
+  }
+  
+  .task-info h3 {
+    font-size: 16px;
+  }
+  
+  .task-info p {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .task-actions {
+    margin-left: auto;
+    display: flex;
+    gap: 5px;
+  }
+  
+  .start-btn, .claim-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .start-btn {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .claim-btn {
+    background-color: #ffa500;
+    color: #fff;
+  }
+  
