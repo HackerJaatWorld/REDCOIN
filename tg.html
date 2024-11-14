@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram User Info</title>
-    <script type="module" src="tg.js"></script>
+    <title>Document</title>
 </head>
-<body style="background:black; color:#fff;">
-    <div id="username">hsdkfghdskfj ...</div>
-    <div id="errorInfo" style="color: red; margin-top: 20px;"></div> <!-- Error Display Div -->
 
-    <script src="js/telegram-web-app.js"></script>
-    
+<body>
+    <div id="name">jhkf</div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const referralCode = urlParams.get("start");
+        document.getElementById("name").textContent = referralCode;
+    </script>
 </body>
+
 </html>
