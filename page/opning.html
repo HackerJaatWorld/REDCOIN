@@ -45,9 +45,62 @@
         <button onclick="goToHome()">Claim</button>
     </div>
     <script>
-        function goToHome(){
+        function goToHome() {
             window.location.href = 'home.html';
         }
+
+
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyClpLE58PQ9eu9BQ_81roYj7Qr8likcKU4",
+            authDomain: "curd-d7e67.firebaseapp.com",
+            projectId: "curd-d7e67",
+            storageBucket: "curd-d7e67.firebasestorage.app",
+            messagingSenderId: "1001989988591",
+            appId: "1:1001989988591:web:141f3e4811d2f9cc35fb1a",
+            measurementId: "G-R4TS0E6Y71"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+
+        const username = localStorage.getItem('username');
+        const userid = localStorage.getItem('iserid');
+        const fullName = localStorage.getItem("fullname");
+
+        if (userid == null) {
+            console.log('user id null');
+        }
+
+
+        function saveUser(N, I, F) {
+
+
+            set(ref(db, 'users/' + N), {
+                id: I,
+                username: N,
+                userfullname: F,
+                signupTime: Date.now(),
+                userWallat: 'Emptry Wallate',
+                userStatus: 0, // 0 done 1 block
+                userWallatStatus: 0, // 0 connect 1 disconnect
+                totalPoints: 10000, // firstr poitns 
+                userReferCode: F + I
+            });
+
+            console.log("save data");
+            localStorage.setItem('login', 1);
+            localStorage.setItem('username', N);
+            localStorage.setItem('userid', I);
+
+        }
+
+        saveUser(username, userid, fullName);
+
     </script>
 </body>
 
