@@ -9153,13 +9153,13 @@ function sy() {
     });
 }
 
-// const ldata = localStorage.getItem('login');
+ const ldata = localStorage.getItem('login');
 
-// if (ldata == 1) {
-//     window.location.href = 'page/home.html';
-// } else {
-//     // saveUser(username, userid, fullName);
-// }
+ if (ldata == 1) {
+     window.location.href = 'page/home.html';
+ } else {
+    window.location.href = 'page/opning.html';
+ }
 
 localStorage.setItem("username", Se.username);
 localStorage.setItem("userid", Se.id);
