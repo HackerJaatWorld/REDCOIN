@@ -146,24 +146,24 @@ document.getElementById("raferlinkbtn").addEventListener("click",function(){
     alert('Referral link copied!');
 });
 
-function awardReferralPoints(referrerId, newUsername) {
-    const referralPoints = 5000;
-    const referralEntry = {
-        username: newUsername,
-        points: referralPoints,
-        timestamp: Date.now()
-    };
+// function awardReferralPoints(referrerId, newUsername) {
+//     const referralPoints = 5000;
+//     const referralEntry = {
+//         username: newUsername,
+//         points: referralPoints,
+//         timestamp: Date.now()
+//     };
 
-    // Add the referral entry
-    const newReferralRef = push(ref(db, `referrals/${referrerId}`));
-    set(newReferralRef, referralEntry);
+//     // Add the referral entry
+//     const newReferralRef = push(ref(db, `referrals/${referrerId}`));
+//     set(newReferralRef, referralEntry);
 
-    // Optionally, update the user’s total points
-    const userRef = ref(db, `users/${referrerId}/totalPoints`);
-    get(userRef).then(snapshot => {
-        const currentPoints = snapshot.val() || 0;
-        set(userRef, currentPoints + referralPoints);
-    });
-}
+//     // Optionally, update the user’s total points
+//     const userRef = ref(db, `users/${referrerId}/totalPoints`);
+//     get(userRef).then(snapshot => {
+//         const currentPoints = snapshot.val() || 0;
+//         set(userRef, currentPoints + referralPoints);
+//     });
+// }
 
-awardReferralPoints()
+// awardReferralPoints()
