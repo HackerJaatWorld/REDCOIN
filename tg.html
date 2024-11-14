@@ -4,15 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Referral Code Display</title>
 </head>
 
 <body>
-    <div id="name">jhkf</div>
+    <div id="code" style="font-size: 24px; color: #333;">No referral code</div>
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const referralCode = urlParams.get("start");
-        document.getElementById("name").textContent = referralCode;
+        // Check if the Telegram Web App API is available
+        if (window.Telegram && Telegram.WebApp) {
+            // Telegram WebApp is ready
+            Telegram.WebApp.ready(() => {
+                // Parse the referral code from the URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const referralCode = urlParams.get("start");
+
+                // Display the referral code if it exists
+                if (referralCode) {
+                    document.getElementById("code").textContent = `Referral Code: ${referralCode}`;
+                } else {
+                    document.getElementById("code").textContent = "No referral code found.";
+                }
+            });
+        } else {
+            // If not in the Telegram Web App, show a message or hide the content
+            document.getElementById("code").textContent = "Please open in the Telegram Web App.";
+        }
     </script>
 </body>
 
