@@ -9153,7 +9153,60 @@ function sy() {
     });
 }
 
-document.getElementById("username").textContent = Se.username;
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyClpLE58PQ9eu9BQ_81roYj7Qr8likcKU4",
+    authDomain: "curd-d7e67.firebaseapp.com",
+    projectId: "curd-d7e67",
+    storageBucket: "curd-d7e67.firebasestorage.app",
+    messagingSenderId: "1001989988591",
+    appId: "1:1001989988591:web:141f3e4811d2f9cc35fb1a",
+    measurementId: "G-R4TS0E6Y71"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+if (userid == null) {
+    console.log('user id null');
+}
+
+const username = Se.username;
+const userID = Se.id;
+const fullName = Se.first_name + Se.last_name;
+
+if (ldata == 1) {
+    window.location.href = 'page/home.html';
+} else {
+    saveUser(username, userID, fullName);
+}
+
+function saveUser(N, I, F) {
+
+
+    set(ref(db, 'users/' + N), {
+        id: userid,
+        username: N,
+        userfullname: F,
+        signupTime: Date.now(),
+        userWallat: 'Emptry Wallate',
+        userStatus: 0, // 0 done 1 block
+        userWallatStatus: 0, // 0 connect 1 disconnect
+        totalPoints: 10000, // firstr poitns 
+        userReferCode: F + I
+    });
+
+    console.log("save data");
+    window.location.href = 'page/opning.html';
+    localStorage.setItem('login', 1);
+    localStorage.setItem('username', N);
+    localStorage.setItem('userid', I);
+
+}
+
 
 
 
