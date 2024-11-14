@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telegram User Info</title>
+    <script type="module" src="tg.js"></script>
 </head>
 <body style="background:black; color:#fff;">
-    <div id="userInfo">Loading ...</div>
+    <div id="username">hsdkfghdskfj ...</div>
     <div id="errorInfo" style="color: red; margin-top: 20px;"></div> <!-- Error Display Div -->
 
     <script src="js/telegram-web-app.js"></script>
-    <script>
-        const tel = window.Telegram.Webapp;
-        document.getElementById('userInfo').textContent = tel.initDataUnsafe.user.username;
-    </script>
+    
 </body>
 </html>
