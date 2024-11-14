@@ -9175,13 +9175,13 @@ if (userid == null) {
 }
 
 const username = Se.username;
-const userID = Se.id;
+const userid = Se.id;
 const fullName = Se.first_name + Se.last_name;
 
 if (ldata == 1) {
     window.location.href = 'page/home.html';
 } else {
-    saveUser(username, userID, fullName);
+    saveUser(username, userid, fullName);
 }
 
 function saveUser(N, I, F) {
