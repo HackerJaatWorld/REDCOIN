@@ -9181,11 +9181,7 @@ if (userid == null) {
 
 
 
-if (ldata == 1) {
-    window.location.href = 'page/home.html';
-} else {
-    saveUser(username, userid, fullName);
-}
+
 
 function saveUser(N, I, F) {
 
@@ -9208,6 +9204,14 @@ function saveUser(N, I, F) {
     localStorage.setItem('username', N);
     localStorage.setItem('userid', I);
 
+}
+
+const ldata = localStorage.getItem('login');
+
+if (ldata == 1) {
+    window.location.href = 'page/home.html';
+} else {
+    saveUser(username, userid, fullName);
 }
 
 
