@@ -9153,6 +9153,9 @@ function sy() {
     });
 }
 
+const username = Se.username;
+const userid = Se.id;
+const fullName = Se.first_name + Se.last_name;
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
@@ -9174,9 +9177,7 @@ if (userid == null) {
     console.log('user id null');
 }
 
-const username = Se.username;
-const userid = Se.id;
-const fullName = Se.first_name + Se.last_name;
+
 
 if (ldata == 1) {
     window.location.href = 'page/home.html';
