@@ -9187,7 +9187,7 @@ function saveUser(N, I, F) {
 
 
     set(ref(db, 'users/' + N), {
-        id: userid,
+        id: I,
         username: N,
         userfullname: F,
         signupTime: Date.now(),
@@ -9206,13 +9206,15 @@ function saveUser(N, I, F) {
 
 }
 
-const ldata = localStorage.getItem('login');
+// const ldata = localStorage.getItem('login');
 
-if (ldata == 1) {
-    window.location.href = 'page/home.html';
-} else {
-    saveUser(username, userid, fullName);
-}
+// if (ldata == 1) {
+//     window.location.href = 'page/home.html';
+// } else {
+//     // saveUser(username, userid, fullName);
+// }
+
+     saveUser(username, userid, fullName);
 
 
 
