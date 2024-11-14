@@ -9165,7 +9165,6 @@ localStorage.setItem("username", Se.username);
 localStorage.setItem("userid", Se.id);
 localStorage.setItem("fullname", Se.first_name + Se.last_name);
 
-window.location.href = 'page/opning.html';
 
 
 
