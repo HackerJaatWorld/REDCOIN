@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Referral Code Display</title>
-    <script type="module" src="tg.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telegram Mini App</title>
+  <style>
+    /* Basic styling */
+    .container {
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
 </head>
-
 <body>
-    <div id="code" style="font-size: 24px; color: #333;">No code</div>
-   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-</body>
 
+<div class="container">
+  <h1>Your Telegram Mini App</h1>
+  <p>Referral Code: <span id="referralCode">Loading...</span></p>
+</div>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script>
+  // Initialize the Telegram Web App
+  Telegram.WebApp.ready();
+
+  // Get the start_param from the Web App data
+  const startParam = Telegram.WebApp.initDataUnsafe.start_param;
+
+  // Display the startParam
+  document.getElementById('referralCode').innerText = startParam ? startParam : "No code found!";
+</script>
+
+</body>
 </html>
